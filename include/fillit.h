@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open.c                                          :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akoropet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akoropet <akoropet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 20:10:50 by akoropet          #+#    #+#             */
-/*   Updated: 2018/07/23 20:11:12 by akoropet         ###   ########.fr       */
+/*   Updated: 2019/09/17 17:18:26 by akoropet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FILLIT_H
 
 # include <fcntl.h>
-# include "./libft/libft.h"
+# include "../lib/libft/libft.h"
 
 # define BUF_SIZE 1
 

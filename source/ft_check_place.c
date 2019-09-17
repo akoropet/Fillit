@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_open.c                                          :+:      :+:    :+:   */
+/*   ft_check_place.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akoropet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akoropet <akoropet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 20:10:50 by akoropet          #+#    #+#             */
-/*   Updated: 2018/07/23 20:11:12 by akoropet         ###   ########.fr       */
+/*   Updated: 2019/09/17 17:19:27 by akoropet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "../include/fillit.h"
 
 int		ft_check_place(char **map, char **fig, int i, int j)
 {

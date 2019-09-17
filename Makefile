@@ -3,36 +3,56 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dskrypny <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: akoropet <akoropet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/27 15:12:12 by dskrypny          #+#    #+#              #
-#    Updated: 2018/07/27 15:12:30 by dskrypny         ###   ########.fr        #
+#    Created: 2019/04/24 17:26:29 by akoropet          #+#    #+#              #
+#    Updated: 2019/09/17 17:16:42 by akoropet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FILES_O = $(FILES_C:.c=.o)
+NAME =			fillit
 
-FILES_C = ft_open.c ft_valid.c ft_karta.c ft_valid_figury.c ft_move_figure.c \
-		  ft_move_horizontal.c ft_check_place.c ft_add_square.c
+SRC_DIR =       ./source/
+OBJ_DIR =       ./objective/
+INC_DIR =       ./include/
 
-LIB = libft/libft.a
+SRC =			ft_add_square.c \
+				ft_check_place.c \
+				ft_karta.c \
+				ft_move_figure.c \
+				ft_move_horizontal.c \
+				ft_open.c \
+				ft_valid.c \
+				ft_valid_figury.c
 
-NAME = fillit
+OBJ =           $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
 
-FLAGS = -Wall -Werror -Wextra
+LIB = 			./lib/lib.a
 
 all: $(NAME)
 
-$(NAME): $(FILES_O)
-	make -C libft
-	gcc $(FLAGS) $(LIB) -o $(NAME) $(FILES_O)
+$(NAME): $(OBJ)
+	@make -C lib
+	@gcc $(FLAGS) $(addprefix $(SRC_DIR), $(SRC)) $(LIB) -o $(NAME)
+	@echo "\033[92m>>>fillit compiled<<<\033[0m"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@gcc $(FLAGS) -c $< -o $@ -I $(INC_DIR)
+
+$(OBJ): | $(OBJ_DIR)
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 
 clean:
-	rm -rf $(FILES_O)
-	make clean -C libft
+	@make clean -C lib
+	@rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	@make fclean -C lib
+	@rm -rf $(OBJ_DIR)
+	@rm -f $(NAME)
 
 re: fclean all
-	make fclean -C libft
+
+vpath %.c $(SRC_DIR)

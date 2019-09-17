@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akoropet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akoropet <akoropet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/11 19:05:26 by akoropet          #+#    #+#             */
-/*   Updated: 2018/07/23 19:57:35 by akoropet         ###   ########.fr       */
+/*   Updated: 2019/04/27 15:31:15 by akoropet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include "../get_next_line/get_next_line.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct		s_list
 {
@@ -82,4 +84,15 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+
+char				*ft_itoa_base(long long int v, size_t base);
+char				*ft_uitoa_base(unsigned long long int value,
+	unsigned long long int base);
+char				*ft_strndup(char *str, int n);
+int					ft_strprint(char *str);
+long double			ft_modfl(long double num, long double *full);
+int					ft_pow(int arg1, int arg2);
+long double			ft_powl(long double arg1, long double arg2);
+char				*ft_strfjoin(char *s1, char *s2, int n);
+
 #endif
